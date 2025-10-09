@@ -3,7 +3,7 @@ name: Build JS Code
 on:
   push:
     branches:
-      - main   # optional: triggers only on main branch
+      - main
 
 jobs:
   build:
@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: Blog_Project/package-lock.json
 
       - name: Install dependencies
-        run: |
-          cd Blog_Project
-          npm install
+        working-directory: Blog_Project
+        run: npm ci
 
       - name: Build project
-        run: |
-          cd Blog_Project
-          npm run build
+        working-directory: Blog_Project
+        run: npm run build
