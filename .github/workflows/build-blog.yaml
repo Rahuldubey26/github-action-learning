@@ -35,6 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: blog-project
-          path: |
-            dist
-            package.json
+          path: dist
+          # path: |
+          #   dist
+          #   package.json
