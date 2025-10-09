@@ -19,7 +19,9 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd Blog_Project
+          npm install
 
       - name: Build project
         run: npm run build
