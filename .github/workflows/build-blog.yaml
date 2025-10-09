@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # ✅ Checkout first
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # ✅ Then setup Node.js so caching works
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
