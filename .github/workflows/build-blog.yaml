@@ -30,3 +30,11 @@ jobs:
       - name: Build project
         # working-directory: Blog_Project
         run: npm run build
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: blog-project
+          path: |
+            dist
+            package.json
