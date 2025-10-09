@@ -1,0 +1,32 @@
+name: Build JS Code
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ✅ Checkout first
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ✅ Then setup Node.js so caching works
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          # cache-dependency-path: Blog_Project/package-lock.json
+          # Use in case you want to go inside  a folder and than use npm there 
+
+      - name: Install dependencies
+        # working-directory: Blog_Project
+        run: npm ci
+
+      - name: Build project
+        # working-directory: Blog_Project
+        run: npm run build
