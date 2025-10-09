@@ -1,0 +1,10 @@
+name: First-workflow
+on: workflow_dispatch
+
+jobs:
+  test:
+    steps:
+      - name: Print the name
+        run: echo  "Hello world!"
+      - name: Print the value
+        run: echo  "Hello 123"
