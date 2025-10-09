@@ -21,6 +21,7 @@ jobs:
           node-version: '18'
           cache: 'npm'
           cache-dependency-path: Blog_Project/package-lock.json
+          # Use in case you want to go inside  a folder and than use npm there 
 
       - name: Install dependencies
         working-directory: Blog_Project
