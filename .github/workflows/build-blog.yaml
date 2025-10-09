@@ -8,6 +8,9 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v4
       - name: Install Depe...
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
         run: npm ci
       - name: Build
         run: npm run build
