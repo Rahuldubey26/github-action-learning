@@ -3,7 +3,7 @@ name: Build JS Code
 on:
   push:
     branches:
-      - main   # optional, add this to limit to main branch
+      - main   # optional: triggers only on main branch
 
 jobs:
   build:
@@ -24,4 +24,6 @@ jobs:
           npm install
 
       - name: Build project
-        run: npm run build
+        run: |
+          cd Blog_Project
+          npm run build
