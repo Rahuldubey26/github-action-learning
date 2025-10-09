@@ -39,3 +39,12 @@ jobs:
           # path: |
           #   dist
           #   package.json
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get build artifacts
+        uses: actions/download-artifact@v4
+      - name: Deploy...
+        run: echo "Deploying....." 
