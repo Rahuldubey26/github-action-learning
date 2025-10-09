@@ -1,0 +1,13 @@
+name: Build the js code
+on: push
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Code checkout
+        run: actions/checkout@v3
+      - name: Install Depe...
+        run: npm Install
+      - name: Build
+        run: npm run build
