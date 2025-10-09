@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    Outputs:
+      script-file: ${{ steps.publish.outputs.any-output-filename }}
     steps:
       # ✅ Checkout first
       - name: Checkout code
@@ -32,8 +33,9 @@ jobs:
         run: npm run build
       
       - name: Publish js  filename
-        run: find dist/assets/*.js -type f -execdir echo '{}' ';'
-        
+        id: publish
+        run: find dist/assets/*.js -type f -execdir echo 'any-output-filename={}' >> $GITHUB_OUTPUT ';'
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
