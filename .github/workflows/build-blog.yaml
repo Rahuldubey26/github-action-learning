@@ -1,17 +1,25 @@
-name: Build the js code
-on: push
+name: Build JS Code
+
+on:
+  push:
+    branches:
+      - main   # optional, add this to limit to main branch
 
 jobs:
-  Build:
+  build:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Code checkout
+
+    steps:
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: setup-node
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
-      - name: Install dep..
+          node-version: '18'
+
+      - name: Install dependencies
         run: npm ci
-      - name: Build
+
+      - name: Build project
         run: npm run build
